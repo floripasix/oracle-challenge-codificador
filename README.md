@@ -8,6 +8,8 @@ Eu trabalhei no projeto totalmente sozinho. Embora eu não tenha contabilizado o
 
 Criei um cabeçalho com um menu móvel, um botão de alternância para mudar entre temas escuros e claros e uma área para criptografar e descriptografar mensagens. Para cumprir as regras do desafio, apliquei um método para transformar todos os caracteres em minúsculas e removi quaisquer caracteres com acentos.
 
+Fiz modificações nas ações dos botões, seguindo os feedbacks que recebi. Removi os alerts e adicionei animações nos botões e no textarea. Além disso, implementei uma função para salvar o tema escolhido pelo usuário, permitindo que ao retornar ao site, o tema escolhido anteriormente seja mantido.
+
 Planejo continuar aperfeiçoando este projeto à medida que eu continue aprendendo e desenvolvendo minhas habilidades lógicas. Agradeço à Oracle + Alura pela oportunidade da bolsa.
 
 Se você tiver alguma dúvida ou comentário sobre o meu projeto, sinta-se à vontade para entrar em contato comigo pelo LinkedIn.
