@@ -1,6 +1,9 @@
 document.querySelector(".criptografar").addEventListener("click", criptografarTexto);
 document.querySelector(".descriptografar").addEventListener("click", descriptografarTexto);
 
+let erroExibido = false;
+
+
 function esconderElemento(e) {
     if (document.querySelector('.texto-espera').style.display === 'none') {
         e.preventDefault();
@@ -11,25 +14,46 @@ function esconderElemento(e) {
 
 function copiarTexto() {
     const textoFinal = document.querySelector('.textoFinal').textContent;
+
     navigator.clipboard.writeText(textoFinal)
-        .then(() => console.log('Texto copiado para a área de transferência'))
+        .then(() => {
+
+            console.log('Texto copiado para a área de transferência');
+            const botao = document.querySelector('.copia');
+            botao.innerHTML = 'Copiado';
+            botao.classList.add('copiado');
+
+            setTimeout(() => {
+                botao.innerHTML = 'Copiar';
+                botao.classList.remove('copiado');
+            }, 2000);
+        })
         .catch(err => console.error('Erro ao copiar texto: ', err));
 }
 
+
 function criptografarTexto() {
-    const textoEntrada = document.querySelector(".inserir-texto").value.toLowerCase();
-    
-    const hasAcento = /[áàâãéèêíïóôõöúç]/.test(textoEntrada);
-    if (hasAcento) {
-        alert("O texto não pode conter acentos.");
-        return;
-    }
+    const textoEntrada = document.querySelector(".inserir-texto").value;
+
+    const textoEntradaNormalizado = textoEntrada.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
     if (textoEntrada === "") {
-        alert("Por favor, crie um texto criptografado primeiro.");
-        return;
+        const meuTextarea = document.querySelector(".inserir-texto");
+        meuTextarea.placeholder = "Por favor, crie um texto para primeiro para criptografar.";
+        meuTextarea.classList.add("texto-vazio");
+
+        const btnCriptografar = document.querySelector(".criptografar");
+        btnCriptografar.classList.add('nao-enviado');
+
+        setTimeout(() => {
+            btnCriptografar.classList.remove('nao-enviado');
+          }, 1000);
+          return;
+        
     }
 
-    const textoCriptografado = criptografar(textoEntrada);
+
+    const textoCriptografado = criptografar(textoEntradaNormalizado);
 
     const aside = document.querySelector("aside");
     aside.classList.remove("aside");
@@ -54,13 +78,29 @@ function criptografar(texto) {
         .replace(/u/g, "ufat");
 }
 
+
+
 function descriptografarTexto() {
-    const textoCriptografado = document.querySelector(".inserir-texto").value.toLowerCase();
-    if (!textoCriptografado) {
-        alert("Por favor, crie um texto criptografado primeiro.");
-        return;
+    const textoCriptografado = document.querySelector(".inserir-texto").value;
+
+    const textoCriptografadoNormalizado = textoCriptografado.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+
+    if (textoCriptografado === "") {
+        const meuTextarea = document.querySelector(".inserir-texto");
+        meuTextarea.placeholder = "Por favor, crie um texto criptografado primeiro.";
+        meuTextarea.classList.add("texto-vazio");
+
+        const btnDescriptografar = document.querySelector(".descriptografar");
+        btnDescriptografar.classList.add('nao-enviado');
+
+        setTimeout(() => {
+            btnDescriptografar.classList.remove('nao-enviado');
+          }, 1000);
+          return;
     }
-    const textoDescriptografado = descriptografar(textoCriptografado);
+
+    const textoDescriptografado = descriptografar(textoCriptografadoNormalizado);
 
     const aside = document.querySelector("aside");
     aside.classList.remove("aside");
