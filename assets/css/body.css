@@ -5,6 +5,7 @@
     box-sizing:border-box;
 }
 
+
 /*Body*/
 .white-theme body {
     display:flex;
@@ -110,7 +111,16 @@
   
 .textoFinal::-webkit-scrollbar-thumb {
     background-color: #333;
+}
+
+.white-theme button.copia.copiado {
+    border:none;
+    font-size: 20px;
+    background:#a1a1a1;
+    border: 1px solid #000;
+    color: #000;
   }
+  
 
 .white-theme .copia {
     margin:20px 0;
@@ -170,10 +180,18 @@ main {
     color:#0A3871;
 
     margin:20px 0;
+    box-shadow:1px 1px 10px #000;
     background:none;
     border:none;
     outline:0;
     resize:none;
+}
+
+.texto-vazio::placeholder {
+    text-align:center;
+    color:#f00;
+    font-weight:bold;
+    font-size:26px;
 }
 
 .white-theme .regras {
@@ -216,8 +234,25 @@ main {
     border:1px solid #0A3871;
 }
 
+.white-theme button.descriptografar.nao-enviado,
+.white-theme button.criptografar.nao-enviado {
+    font-size:18px;
+    border:none;
+    color:#000;
+    background-color:#f00;
+    transform: rotate(2deg);
+    animation: shake 0.2s linear infinite;
+}
+
+@keyframes shake {
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
 /*Dark theme*/
 .dark-theme .inserir-texto {
+    box-shadow:1px 1px 10px #fff;
     color:#fff;
 }
 
@@ -281,7 +316,8 @@ main {
 @media (max-width: 650px) {
     .white-theme .inserir-texto {
         height:100%;
-        padding:0 20px;
+        padding:0 2px;
+        margin:20px 20px 20px 0;
     }
     .white-theme .regras {
         justify-content:center;
@@ -311,5 +347,9 @@ main {
     .white-theme aside {
         width:95%;
         margin:20px auto;
+    }
+    .white-theme .inserir-texto {
+        margin-left:10px;
+        width:90%;
     }
 }
