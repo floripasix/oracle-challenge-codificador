@@ -11,3 +11,4 @@ Criei um cabeçalho com um menu móvel, um botão de alternância para mudar ent
 Planejo continuar aperfeiçoando este projeto à medida que eu continue aprendendo e desenvolvendo minhas habilidades lógicas. Agradeço à Oracle + Alura pela oportunidade da bolsa.
 
 Se você tiver alguma dúvida ou comentário sobre o meu projeto, sinta-se à vontade para entrar em contato comigo pelo LinkedIn.
+Linkedin: https://www.linkedin.com/in/osvaldocjr/
