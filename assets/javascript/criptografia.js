@@ -10,9 +10,10 @@ function esconderElemento(e) {
 }
 
 function copiarTexto() {
-    const textoFinal = document.querySelector('.textoFinal');
-    textoFinal.select();
-    document.execCommand('copy');
+    const textoFinal = document.querySelector('.textoFinal').textContent;
+    navigator.clipboard.writeText(textoFinal)
+        .then(() => console.log('Texto copiado para a área de transferência'))
+        .catch(err => console.error('Erro ao copiar texto: ', err));
 }
 
 function criptografarTexto() {
