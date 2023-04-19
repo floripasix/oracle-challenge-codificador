@@ -1,0 +1,212 @@
+* {
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+}
+/*Aside*/
+.white-theme aside {
+    height:calc(100vh - 110px);
+    width:350px;
+    border-radius:30px;
+    background:#fff;
+    margin-top:20px;
+    margin-left:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.texto-espera {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.procurando {
+    height:250px;
+    width:250px;
+}
+
+.white-theme .esperando-mensagem {
+    color:#000;
+    margin:10px 0;
+    text-align:center;
+    font-size:24px;
+}
+
+.white-theme .digite-texto {
+    color:#6d6d6d;
+    font-weight:500;
+    text-align:center;
+    font-size:14px;
+}
+
+.resultadoCriptografado {
+    height:150px;
+    height:250px;
+    margin:0px;
+}
+
+
+.white-theme .aside-texto-final {
+    width:350px;
+    border-radius: 30px;
+    background:#fff;
+    margin-top: 20px;
+    margin-left: 10px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.white-theme .textoFinal {
+    height:calc(100% - 110px);
+    width:90%;
+    margin-top:20px;
+
+    font-size:20px;
+    font-weight:400;
+    line-height:25px;
+    color:#333;
+    
+    background:none;
+    border:none;
+    outline:0;
+    resize:none;
+}
+
+.white-theme .copia {
+    margin:20px 0;
+
+    border-radius:30px;
+    font-size:16px;
+    font-weight:700;
+    height:60px;
+    width:300px;
+    cursor:pointer;
+
+    color:#0A3871;
+    background:none;
+    border:1px solid #0A3871;
+}
+
+/*Dark theme*/
+.dark-theme aside {
+    background:none;
+    border:2px solid #fff;
+}
+
+.dark-theme .esperando-mensagem {
+    color:#fff;
+}
+
+.dark-theme .digite-texto {
+    color:#ddd;
+}
+
+.dark-theme .aside-texto-final {
+    background:#ccc;
+    border:none
+}
+
+.dark-theme .textoFinal {
+    color:#222;
+}
+
+.dark-theme .copia {
+    color:#222;
+    background:#eee;
+    border:1px solid #000;
+}
+
+/*Main*/
+
+main {
+    height:calc(100vh - 100px);
+}
+.white-theme .inserir-texto {
+    height:calc(100% - 150px);
+    width:100%;
+    font-size:28px;
+    font-weight:400;
+    line-height:35px;
+    color:#0A3871;
+
+    margin:20px 0;
+    background:none;
+    border:none;
+    outline:0;
+    resize:none;
+}
+
+.white-theme .regras {
+    display:flex;
+    font-size:12px;
+    gap:5px;
+    color:#000;
+}
+
+.exclamacao {
+    text-align:center;
+    color:#fff;
+    font-size:13px;
+    height:15px;
+    width:15px;
+    border-radius:10px;
+    background-color:#777;
+}
+
+
+.buttons {
+    margin-top:5px;
+}
+.button {
+    border-radius:30px;
+    font-size:16px;
+    font-weight:700;
+    height:60px;
+    width:300px;
+    cursor:pointer;
+}
+.white-theme .criptografar {
+    border:none;
+    color:#fff;
+    background:#0A3871;
+}
+.white-theme .descriptografar {
+    color:#0A3871;
+    background:none;
+    border:1px solid #0A3871;
+}
+
+/*Dark theme*/
+.dark-theme .inserir-texto {
+    color:#fff;
+}
+
+.dark-theme .regras {
+    color:#fff;
+}
+
+.dark-theme .criptografar {
+    border:1px solid #fff;
+    color:#fff;
+    background:#222;
+}
+
+.dark-theme .descriptografar {
+    color:#bbb;
+    background:#333;
+    border:1px solid #fff;
+}
+
+
+
+
+@media (max-width:1000px) {
+
+}

@@ -1,0 +1,83 @@
+* {
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+main {
+    height:calc(100vh - 100px);
+}
+.white-theme .inserir-texto {
+    height:calc(100% - 150px);
+    width:100%;
+    font-size:28px;
+    font-weight:400;
+    line-height:35px;
+    color:#0A3871;
+
+    margin:20px 0;
+    background:none;
+    border:none;
+    outline:0;
+    resize:none;
+}
+
+.white-theme .regras {
+    display:flex;
+    font-size:12px;
+    gap:5px;
+    color:#000;
+}
+
+.exclamacao {
+    text-align:center;
+    color:#fff;
+    font-size:13px;
+    height:15px;
+    width:15px;
+    border-radius:10px;
+    background-color:#777;
+}
+
+
+.buttons {
+    margin-top:5px;
+}
+.button {
+    border-radius:30px;
+    font-size:16px;
+    font-weight:700;
+    height:60px;
+    width:300px;
+    cursor:pointer;
+}
+.white-theme .criptografar {
+    border:none;
+    color:#fff;
+    background:#0A3871;
+}
+.white-theme .descriptografar {
+    color:#0A3871;
+    background:none;
+    border:1px solid #0A3871;
+}
+
+/*Dark theme*/
+.dark-theme .inserir-texto {
+    color:#fff;
+}
+
+.dark-theme .regras {
+    color:#fff;
+}
+
+.dark-theme .criptografar {
+    border:1px solid #fff;
+    color:#fff;
+    background:#222;
+}
+
+.dark-theme .descriptografar {
+    color:#bbb;
+    background:#333;
+    border:1px solid #fff;
+}

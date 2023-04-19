@@ -1,0 +1,17 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.white-theme footer {
+    color:#000;
+    font-size:12px;
+    height:20px;
+    background:none;
+    text-align: center;
+}
+
+.dark-theme footer {
+    color:#fff;
+}
