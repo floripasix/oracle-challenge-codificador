@@ -20,6 +20,7 @@ a {
     height:40px;
 }
 .header {
+    box-shadow: 0px 3px 10px #000;
     box-sizing:border-box;
 
     display:flex;
@@ -141,6 +142,7 @@ a {
 }
 
 .dark-theme header {
+    box-shadow: 0px 3px 10px #fff;
     background:#c4c4c41c;
     backdrop-filter:blur(20px);
     color: #333333;
