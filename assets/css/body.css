@@ -269,7 +269,7 @@ main {
         margin-top:20px;
     }
     main {
-        height:0%;
+        height:100%;
         margin:auto;
         display: flex;
         align-items: center;
