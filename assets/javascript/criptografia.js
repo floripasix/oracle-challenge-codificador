@@ -3,6 +3,13 @@ document.querySelector(".descriptografar").addEventListener("click", descriptogr
 
 let erroExibido = false;
 
+const textarea = document.querySelector(".textoFinal");
+
+textarea.addEventListener("input", () => {
+  textarea.style.height = "auto";
+  textarea.style.height = `${textarea.scrollHeight}px`;
+});
+
 
 function esconderElemento(e) {
     if (document.querySelector('.texto-espera').style.display === 'none') {
