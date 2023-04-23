@@ -99,6 +99,7 @@
     outline:0;
 }
 
+
 .white-theme button.copia.copiado {
     border:none;
     font-size: 20px;
@@ -265,13 +266,20 @@ main {
     .container {
         height:100%;
         flex-direction:column;
+        margin-top:20px;
     }
     main {
         height:0%;
         margin:auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
     .white-theme .inserir-texto {
         height:100%;
+    }
+    .buttons {
+        margin-bottom:20px;
     }
 
     .procurando {
@@ -282,9 +290,9 @@ main {
         height:150px;
     }
     .white-theme .aside-texto-final {
-        margin-top:20px;
-        width:95%;
-        height:100%;
+        margin: auto;
+        width: 90%;
+        height: 100%;
     }
     .white-theme aside {
         margin-bottom:20px;
@@ -293,6 +301,7 @@ main {
 
 
     .white-theme footer {
+        margin-top:20px;
         bottom:0;
         width: 100%;
         z-index: 1000; 
@@ -324,9 +333,6 @@ main {
         margin-bottom:20px;
     }
 
-    .white-theme .aside-texto-final {
-        margin-right:10px;
-    }
 }
 
 @media (max-width:500px) {
@@ -335,7 +341,7 @@ main {
         margin:20px auto;
     }
     .white-theme .inserir-texto {
-        margin-left:10px;
+        margin:20px 10px;
         width:90%;
     }
 }
