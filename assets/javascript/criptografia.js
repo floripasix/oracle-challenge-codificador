@@ -16,9 +16,21 @@ function mostrarElemento() {
     aside.innerHTML = '<div class="texto-espera"><img class="procurando" src="assets/image/espera/High quality products 1 1@2x.png" alt="Imagem de Busca"><div class="mensagem-texto"><h2 class="esperando-mensagem">Nenhuma mensagem encontrada</h2><p class="digite-texto"> Digite um texto que você deseja criptografar ou descriptografar</p></div></div>'
 }
 
-function voltaTamanho() {
+function voltaTamanhoMain() {
     document.querySelector('.inserir-texto').style.height = 'initial';
 }
+
+function voltaTamanho() {
+    const aside = document.querySelector(".aside-texto-final");
+    const textoFinal = document.querySelector(".textoFinal");
+
+    if (aside.offsetHeight >= 300) {
+        aside.style.height = "auto";
+    }
+
+    aside.style.height = "auto";
+}
+
 function mostrarTextoEspera() {
     document.querySelector(".texto-espera").style.display = 'flex';
 }
@@ -49,7 +61,7 @@ function copiarTexto() {
         .catch(err => console.error('Erro ao copiar texto: ', err));
 
     document.querySelector('.textoFinal').textContent = '';
-    voltaTamanho();
+    voltaTamanhoMain();
     mostrarTextoEspera();
 }
 
@@ -95,15 +107,8 @@ function criptografarTexto() {
     aside.classList.add("aside-texto-final");
 
     aside.innerHTML = '<p class="textoFinal">'
-    + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
+        + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
 
-    const textoFinal = document.querySelector(".aside-texto-final");
-
-
-    if (textoFinal.offsetHeight >= 300) {
-        textoFinal.style.height = "auto";
-    }
-    aside.style.height = "auto";
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
@@ -112,6 +117,7 @@ function criptografarTexto() {
     textarea.readOnly = true;
 
     document.querySelector(".inserir-texto").value = "";
+    voltaTamanhoMain();
     voltaTamanho();
 }
 
@@ -174,6 +180,7 @@ function descriptografarTexto() {
     textarea.readOnly = true;
 
     document.querySelector(".inserir-texto").value = "";
+    voltaTamanhoMain();
     voltaTamanho();
 }
 
