@@ -95,7 +95,15 @@ function criptografarTexto() {
     aside.classList.add("aside-texto-final");
 
     aside.innerHTML = '<p class="textoFinal">'
-        + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
+    + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
+
+    const textoFinal = document.querySelector(".aside-texto-final");
+
+
+    if (textoFinal.offsetHeight >= 300) {
+        textoFinal.style.height = "auto";
+    }
+    aside.style.height = "auto";
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
