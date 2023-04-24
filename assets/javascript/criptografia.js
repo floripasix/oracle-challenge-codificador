@@ -59,7 +59,7 @@ function criptografarTexto() {
 
     const textoEntradaNormalizado = textoEntrada.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-    const regex = /^[a-zA-Z0-9\s]*$/;
+    const regex = /^[a-zA-Z0-9\s.,;:'"()!?]*$/;
     if (!regex.test(textoEntrada)) {
         const aside = document.querySelector("aside");
         aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
@@ -123,7 +123,7 @@ function descriptografarTexto() {
 
     const textoCriptografadoNormalizado = textoCriptografado.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-    const regex = /^[a-zA-Z0-9\s]*$/;
+    const regex = /^[a-zA-Z0-9\s.,;:'"()!?]*$/;
     if (!regex.test(textoCriptografado)) {
         const aside = document.querySelector("aside");
         aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
