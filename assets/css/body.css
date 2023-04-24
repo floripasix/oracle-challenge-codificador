@@ -350,3 +350,12 @@ main {
         width:90%;
     }
 }
+
+@media (max-width:350px) {
+    .white-theme .copia, .white-theme .buttons {
+        width:90%;
+    }
+    .white-theme .criptografar, .white-theme .descriptografar {
+        width:100%;
+    }
+}
