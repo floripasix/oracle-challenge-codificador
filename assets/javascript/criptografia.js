@@ -12,7 +12,7 @@ textarea.addEventListener("input", () => {
 
 function mostrarElemento() {
     const aside = document.querySelector("aside");
-    
+
     aside.innerHTML = '<div class="texto-espera"><img class="procurando" src="assets/image/espera/High quality products 1 1@2x.png" alt="Imagem de Busca"><div class="mensagem-texto"><h2 class="esperando-mensagem">Nenhuma mensagem encontrada</h2><p class="digite-texto"> Digite um texto que você deseja criptografar ou descriptografar</p></div></div>'
 }
 
@@ -22,7 +22,7 @@ function voltaTamanho() {
 function mostrarTextoEspera() {
     document.querySelector(".texto-espera").style.display = 'flex';
 }
-  
+
 
 function copiarTexto() {
     const textoFinal = document.querySelector('.textoFinal').textContent;
@@ -32,7 +32,6 @@ function copiarTexto() {
         .then(() => {
             document.querySelector('.textoFinal').value = '';
 
-            console.log('Texto copiado para a área de transferência');
             const botao = document.querySelector('.copia');
             botao.innerHTML = 'Copiado';
             botao.classList.add('copiado');
@@ -40,7 +39,7 @@ function copiarTexto() {
             aside.innerHTML = '<p class="textoCopiado">Texto copiado com sucesso!</p>';
             aside.classList.remove("aside-texto-final");
             aside.classList.add("aside");
-            
+
             setTimeout(() => {
                 botao.innerHTML = 'Copiar';
                 botao.classList.remove('copiado');
@@ -59,6 +58,17 @@ function criptografarTexto() {
     const textoEntrada = document.querySelector(".inserir-texto").value;
 
     const textoEntradaNormalizado = textoEntrada.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+    const regex = /^[a-zA-Z0-9\s]*$/;
+    if (!regex.test(textoEntrada)) {
+        const aside = document.querySelector("aside");
+        aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
+
+        setTimeout(() => {
+            mostrarElemento();
+        }, 2000)
+        return;
+    }
 
     if (textoEntrada === "") {
         const meuTextarea = document.querySelector(".inserir-texto");
@@ -113,6 +123,16 @@ function descriptografarTexto() {
 
     const textoCriptografadoNormalizado = textoCriptografado.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
+    const regex = /^[a-zA-Z0-9\s]*$/;
+    if (!regex.test(textoCriptografado)) {
+        const aside = document.querySelector("aside");
+        aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
+
+        setTimeout(() => {
+            mostrarElemento();
+        }, 2000)
+        return;
+    }
 
     if (textoCriptografado === "") {
         const meuTextarea = document.querySelector(".inserir-texto");
