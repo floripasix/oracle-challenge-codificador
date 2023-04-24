@@ -70,6 +70,8 @@ function criptografarTexto() {
 
         setTimeout(() => {
             btnCriptografar.classList.remove('nao-enviado');
+            meuTextarea.classList.remove("texto-vazio");
+            meuTextarea.placeholder = "Digite seu texto aqui.";
         }, 1000);
         return;
 
@@ -122,6 +124,8 @@ function descriptografarTexto() {
 
         setTimeout(() => {
             btnDescriptografar.classList.remove('nao-enviado');
+            meuTextarea.classList.remove("texto-vazio");
+            meuTextarea.placeholder = "Digite seu texto aqui.";
         }, 1000);
         return;
     }
