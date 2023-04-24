@@ -156,7 +156,8 @@
 /*Main*/
 
 main {
-    height:calc(100vh - 100px);
+    height:auto;
+    margin-bottom:20px;
 }
 .white-theme .inserir-texto {
     height:auto;
@@ -301,7 +302,7 @@ main {
 
 
     .white-theme footer {
-        margin-top:20px;
+        margin-top:0px;
         bottom:0;
         width: 100%;
         z-index: 1000; 
