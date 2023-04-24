@@ -68,6 +68,14 @@
     margin:0px;
 }
 
+.white-theme .textoCopiado {
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+}
+.dark-theme aside .textoCopiado {
+    color:#fff;
+}
 
 .white-theme .aside-texto-final {
     height:auto;
@@ -84,9 +92,10 @@
 }
 
 .white-theme .textoFinal {
-    height:95%;
+    height:100%;
     width:90%;
     margin-top:20px;
+
 
     word-wrap:break-word;
     font-size:18px;
@@ -268,6 +277,7 @@ main {
         height:100%;
         flex-direction:column;
         margin-top:20px;
+        width:100%;
     }
     main {
         height:100%;
@@ -287,22 +297,18 @@ main {
         display:none;
     }
     .white-theme aside {
-        width:100%;
+        width:95%;
         height:150px;
     }
     .white-theme .aside-texto-final {
         margin: auto;
         width: 90%;
         height: 100%;
-    }
-    .white-theme aside {
-        margin-bottom:20px;
-    }
-    
+    }    
 
 
     .white-theme footer {
-        margin-top:0px;
+        margin-top:20px;
         bottom:0;
         width: 100%;
         z-index: 1000; 
@@ -328,10 +334,8 @@ main {
     }
 
     .white-theme aside {
-        width:100%;
-        margin-left:0;
-        margin-top:20px;
-        margin-bottom:20px;
+        width:95%;
+        margin-top:0;
     }
 
 }
@@ -339,7 +343,7 @@ main {
 @media (max-width:500px) {
     .white-theme aside {
         width:95%;
-        margin:20px auto;
+        margin:0px auto;
     }
     .white-theme .inserir-texto {
         margin:20px 10px;
