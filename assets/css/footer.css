@@ -5,8 +5,7 @@
 }
 
 .white-theme footer {
-    bottom: 0;
-    width: 100%;
+    margin: auto;
     color: #000;
     font-size: 12px;
     height: 20px;
