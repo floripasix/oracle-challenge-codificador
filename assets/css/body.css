@@ -79,7 +79,7 @@
 }
 
 .white-theme .aside-texto-final {
-    height:auto;
+    height:calc(100vh-110px);
     width:350px;
     border-radius: 30px;
     background:#fff;
