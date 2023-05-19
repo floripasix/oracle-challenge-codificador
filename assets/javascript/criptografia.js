@@ -2,7 +2,6 @@ const campoMensagem = document.querySelector('.campo-mensagem');
 const inserirTexto = document.querySelector(".inserir-texto");
 const campoMensagemTextoFinal = document.querySelector(".campo-mensagem-texto-final");
 const textoFinal = document.querySelector(".textoFinal");
-const meuTextarea = document.querySelector(".inserir-texto");
 const botaoCopia = document.querySelector('.copia');
 
 let erroExibido = false;
@@ -23,13 +22,7 @@ function voltaTamanhoMain() {
     document.querySelector('.inserir-texto').style.height = 'initial';
 }
 
-function voltaTamanho() {
-    if (campoMensagemTextoFinal.offsetHeight >= 300) {
-        campoMensagemTextoFinal.style.height = "auto";
-    }
 
-    campoMensagemTextoFinal.style.height = "auto";
-}
 
 function mostrarTextoEspera() {
     document.querySelector(".texto-espera").style.display = 'flex';
@@ -42,8 +35,6 @@ function copiarTexto() {
 
     navigator.clipboard.writeText(textoFinal)
         .then(() => {
-            document.querySelector('.textoFinal').value = '';
-
             botaoCopia.innerHTML = 'Copiado';
             botaoCopia.classList.add('copiado');
 
@@ -59,7 +50,8 @@ function copiarTexto() {
         })
         .catch(err => console.error('Erro ao copiar texto: ', err));
 
-    document.querySelector('.textoFinal').textContent = '';
+        inserirTexto
+    
     voltaTamanhoMain();
     mostrarTextoEspera();
 }
@@ -81,16 +73,16 @@ function criptografarTexto() {
     }
 
     if (textoEntrada === "") {
-        meuTextarea.placeholder = "Por favor, crie um texto para primeiro criptografar.";
-        meuTextarea.classList.add("texto-vazio");
+        inserirTexto.placeholder = "Por favor, crie um texto para primeiro criptografar.";
+        inserirTexto.classList.add("texto-vazio");
 
         const btnCriptografar = document.querySelector(".criptografar");
         btnCriptografar.classList.add('nao-enviado');
 
         setTimeout(() => {
             btnCriptografar.classList.remove('nao-enviado');
-            meuTextarea.classList.remove("texto-vazio");
-            meuTextarea.placeholder = "Digite seu texto aqui.";
+            inserirTexto.classList.remove("texto-vazio");
+            inserirTexto.placeholder = "Digite seu texto aqui.";
         }, 1000);
         return;
 
@@ -102,16 +94,14 @@ function criptografarTexto() {
     campoMensagem.classList.add("campo-mensagem-texto-final");
 
     campoMensagem.innerHTML = '<p class="textoFinal">'
-    + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
+        + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
 
-    textoFinal.readOnly = true;
-
     document.querySelector(".inserir-texto").value = "";
+    inserirTexto.value = "";
     voltaTamanhoMain();
-    voltaTamanho();
 }
 
 function criptografar(texto) {
@@ -157,20 +147,18 @@ function descriptografarTexto() {
 
     const textoDescriptografado = descriptografar(textoCriptografadoNormalizado);
 
-    campoMensagem.classList.remove("aside");
-    campoMensagem.classList.add("campoMensagemTextoFinal");
+    campoMensagem.classList.remove("campo-mensagem");
+    campoMensagem.classList.add("campo-mensagem-texto-final");
 
     campoMensagem.innerHTML = '<p class="textoFinal">'
-    + textoDescriptografado + '</p>' + '<button class="copia">Copiar</button>'
+        + textoDescriptografado + '</p>' + '<button class="copia">Copiar</button>'
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
 
-    inserirTexto.readOnly = true;
-
     document.querySelector(".inserir-texto").value = "";
+    inserirTexto.value = "";
     voltaTamanhoMain();
-    voltaTamanho();
 }
 
 function descriptografar(textoCriptografado) {
