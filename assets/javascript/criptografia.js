@@ -1,19 +1,22 @@
-document.querySelector(".criptografar").addEventListener("click", criptografarTexto);
-document.querySelector(".descriptografar").addEventListener("click", descriptografarTexto);
+const campoMensagem = document.querySelector('.campo-mensagem');
+const inserirTexto = document.querySelector(".inserir-texto");
+const campoMensagemTextoFinal = document.querySelector(".campo-mensagem-texto-final");
+const textoFinal = document.querySelector(".textoFinal");
+const meuTextarea = document.querySelector(".inserir-texto");
+const botaoCopia = document.querySelector('.copia');
 
 let erroExibido = false;
 
-const textarea = document.querySelector(".inserir-texto");
+document.querySelector(".criptografar").addEventListener("click", criptografarTexto);
+document.querySelector(".descriptografar").addEventListener("click", descriptografarTexto);
 
-textarea.addEventListener("input", () => {
-    textarea.style.height = "auto";
-    textarea.style.height = `${textarea.scrollHeight}px`;
+inserirTexto.addEventListener("input", () => {
+    inserirTexto.style.height = "auto";
+    inserirTexto.style.height = `${inserirTexto.scrollHeight}px`;
 });
 
 function mostrarElemento() {
-    const aside = document.querySelector("aside");
-
-    aside.innerHTML = '<div class="texto-espera"><img class="procurando" src="assets/image/espera/High quality products 1 1@2x.png" alt="Imagem de Busca"><div class="mensagem-texto"><h2 class="esperando-mensagem">Nenhuma mensagem encontrada</h2><p class="digite-texto"> Digite um texto que você deseja criptografar ou descriptografar</p></div></div>'
+    campoMensagem.innerHTML = '<div class="texto-espera"><img class="procurando" src="assets/img/espera/meninaesperando.png" alt="Imagem de Busca"><div class="mensagem-texto"><h2 class="esperando-mensagem">Nenhuma mensagem encontrada</h2><p class="digite-texto"> Digite um texto que você deseja criptografar ou descriptografar</p></div></div>'
 }
 
 function voltaTamanhoMain() {
@@ -21,14 +24,11 @@ function voltaTamanhoMain() {
 }
 
 function voltaTamanho() {
-    const aside = document.querySelector(".aside-texto-final");
-    const textoFinal = document.querySelector(".textoFinal");
-
-    if (aside.offsetHeight >= 300) {
-        aside.style.height = "auto";
+    if (campoMensagemTextoFinal.offsetHeight >= 300) {
+        campoMensagemTextoFinal.style.height = "auto";
     }
 
-    aside.style.height = "auto";
+    campoMensagemTextoFinal.style.height = "auto";
 }
 
 function mostrarTextoEspera() {
@@ -38,23 +38,22 @@ function mostrarTextoEspera() {
 
 function copiarTexto() {
     const textoFinal = document.querySelector('.textoFinal').textContent;
-    const aside = document.querySelector('aside');
+    const botaoCopia = document.querySelector('.copia');
 
     navigator.clipboard.writeText(textoFinal)
         .then(() => {
             document.querySelector('.textoFinal').value = '';
 
-            const botao = document.querySelector('.copia');
-            botao.innerHTML = 'Copiado';
-            botao.classList.add('copiado');
+            botaoCopia.innerHTML = 'Copiado';
+            botaoCopia.classList.add('copiado');
 
-            aside.innerHTML = '<p class="textoCopiado">Texto copiado com sucesso!</p>';
-            aside.classList.remove("aside-texto-final");
-            aside.classList.add("aside");
+            campoMensagem.innerHTML = '<p class="textoCopiado">Texto copiado com sucesso!</p>';
+            campoMensagem.classList.remove("campo-mensagem-texto-final");
+            campoMensagem.classList.add("campo-mensagem");
 
             setTimeout(() => {
-                botao.innerHTML = 'Copiar';
-                botao.classList.remove('copiado');
+                botaoCopia.innerHTML = 'Copiar';
+                botaoCopia.classList.remove('copiado');
                 mostrarElemento();
             }, 2000);
         })
@@ -73,8 +72,7 @@ function criptografarTexto() {
 
     const regex = /^[a-zA-Z0-9\s.,;:'"()!?]*$/;
     if (!regex.test(textoEntrada)) {
-        const aside = document.querySelector("aside");
-        aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
+        campoMensagem.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais nem letras acentuadas!</p>';
 
         setTimeout(() => {
             mostrarElemento();
@@ -83,8 +81,7 @@ function criptografarTexto() {
     }
 
     if (textoEntrada === "") {
-        const meuTextarea = document.querySelector(".inserir-texto");
-        meuTextarea.placeholder = "Por favor, crie um texto para primeiro para criptografar.";
+        meuTextarea.placeholder = "Por favor, crie um texto para primeiro criptografar.";
         meuTextarea.classList.add("texto-vazio");
 
         const btnCriptografar = document.querySelector(".criptografar");
@@ -99,22 +96,18 @@ function criptografarTexto() {
 
     }
 
-
     const textoCriptografado = criptografar(textoEntradaNormalizado);
 
-    const aside = document.querySelector("aside");
-    aside.classList.remove("aside");
-    aside.classList.add("aside-texto-final");
+    campoMensagem.classList.remove("campo-mensagem");
+    campoMensagem.classList.add("campo-mensagem-texto-final");
 
-    aside.innerHTML = '<p class="textoFinal">'
-        + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
-
+    campoMensagem.innerHTML = '<p class="textoFinal">'
+    + textoCriptografado + '</p>' + '<button class="copia">Copiar</button>'
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
 
-    const textarea = document.querySelector('.textoFinal');
-    textarea.readOnly = true;
+    textoFinal.readOnly = true;
 
     document.querySelector(".inserir-texto").value = "";
     voltaTamanhoMain();
@@ -139,8 +132,7 @@ function descriptografarTexto() {
 
     const regex = /^[a-zA-Z0-9\s.,;:'"()!?]*$/;
     if (!regex.test(textoCriptografado)) {
-        const aside = document.querySelector("aside");
-        aside.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais!</p>';
+        campoMensagem.innerHTML = '<p class="textoRegra">O texto não pode conter caracteres especiais nem letras acentuadas!</p>';
 
         setTimeout(() => {
             mostrarElemento();
@@ -149,35 +141,32 @@ function descriptografarTexto() {
     }
 
     if (textoCriptografado === "") {
-        const meuTextarea = document.querySelector(".inserir-texto");
-        meuTextarea.placeholder = "Por favor, crie um texto criptografado primeiro.";
-        meuTextarea.classList.add("texto-vazio");
+        inserirTexto.placeholder = "Por favor, crie um texto criptografado primeiro.";
+        inserirTexto.classList.add("texto-vazio");
 
         const btnDescriptografar = document.querySelector(".descriptografar");
         btnDescriptografar.classList.add('nao-enviado');
 
         setTimeout(() => {
             btnDescriptografar.classList.remove('nao-enviado');
-            meuTextarea.classList.remove("texto-vazio");
-            meuTextarea.placeholder = "Digite seu texto aqui.";
+            inserirTexto.classList.remove("texto-vazio");
+            inserirTexto.placeholder = "Digite seu texto aqui.";
         }, 1000);
         return;
     }
 
     const textoDescriptografado = descriptografar(textoCriptografadoNormalizado);
 
-    const aside = document.querySelector("aside");
-    aside.classList.remove("aside");
-    aside.classList.add("aside-texto-final");
+    campoMensagem.classList.remove("aside");
+    campoMensagem.classList.add("campoMensagemTextoFinal");
 
-    aside.innerHTML = '<p class="textoFinal">'
-        + textoDescriptografado + '</p>' + '<button class="copia">Copiar</button>'
+    campoMensagem.innerHTML = '<p class="textoFinal">'
+    + textoDescriptografado + '</p>' + '<button class="copia">Copiar</button>'
 
     const botaoCopia = document.querySelector('.copia');
     botaoCopia.addEventListener('click', copiarTexto);
 
-    const textarea = document.querySelector('.textoFinal');
-    textarea.readOnly = true;
+    inserirTexto.readOnly = true;
 
     document.querySelector(".inserir-texto").value = "";
     voltaTamanhoMain();
