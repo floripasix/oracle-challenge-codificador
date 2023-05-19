@@ -16,7 +16,7 @@
     display:flex;
     justify-content:center;
     margin:auto;
-    min-height:calc(100vh - 100px);
+    min-height:calc(100vh - 90px);
 }
 
 .dark-theme body {
