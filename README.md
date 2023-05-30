@@ -1,3 +1,4 @@
+Português(Brasil)<br>
 # oracle-challenge-codificador<br>
 <br>
 Desafio Oracle + Alura: Criando um site responsivo para criptografar as letras.<br>
@@ -38,6 +39,7 @@ Link do projeto: https://osvaldocjr.github.io/oracle-challenge-codificador/<br>
 <br>
 ############################################################################<br>
 <br>
+English<br>
 # oracle-alura-challenge<br>
 <br>
 Creating a responsive website for letter encoding.
